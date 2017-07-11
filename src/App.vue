@@ -30,7 +30,16 @@ body,
 }
 
 body {
+  font-family: 'Avenir', Helvetica, 'Kanit', Arial, sans-serif !important;
   margin: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: 'Avenir', Helvetica, 'Kanit', Arial, sans-serif;
 }
 
 #app {

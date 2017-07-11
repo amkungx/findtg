@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper-content clearfix">
-    <div class="container">
+    <div class="container form">
       <div class="section-title mb-4">
         <h2>แจ้งหาย</h2>
       </div>
       <div class="mt-3">
-        <el-input placeholder="หัวข้อที่ต้องการแจ้งหาย" v-model="input5">
-          <el-select v-model="select" slot="prepend" placeholder="ประเภท">
+        <el-input placeholder="หัวข้อที่ต้องการแจ้งหาย" v-model="input">
+          <el-select v-model="select" slot="prepend" placeholder="ประเภทการหาย">
             <el-option label="คนหาย" value="1"></el-option>
             <el-option label="สัตว์หาย" value="2"></el-option>
             <el-option label="สิ่งของหาย" value="3"></el-option>
@@ -18,7 +18,7 @@
         </el-input>
       </div>
       <div class="mt-3">
-        <el-input placeholder="Please input" v-model="input3"></el-input>
+        <el-input placeholder="Please input" v-model="input2"></el-input>
         <template slot="prepend">
           <i class="el-icon-information"></i>
         </template>
@@ -26,7 +26,7 @@
   
       <div class="mt-3">
         <div class="block">
-          <el-date-picker v-model="input4" type="datetime" placeholder="Select date and time">
+          <el-date-picker v-model="input3" type="datetime" placeholder="Select date and time">
           </el-date-picker>
         </div>
       </div>
@@ -34,37 +34,39 @@
     </div>
   </div>
 </template>
-
-<style>
-.el-date-editor--datetimerange.el-input,
-.el-date-editor.el-input {
-  width: 100%;
-}
-.el-picker-panel{
-  max-width: 400px;
-}
-</style>
 <script>
 export default {
   data () {
     return {
       textarea: '',
+      input: '',
+      input2: '',
       input3: '',
       input4: '',
       input5: '',
       select: '',
-      options5: [{
-        value: 'HTML',
-        label: 'HTML'
-      }, {
-        value: 'CSS',
-        label: 'CSS'
-      }, {
-        value: 'JavaScript',
-        label: 'JavaScript'
-      }],
       value10: []
     }
   }
 }
 </script>
+<style>
+.form,
+.form .el-select-dropdown__item span {
+  font-family: 'Kanit' !important;
+  font-weight: 200 !important;
+}
+
+.el-date-editor--datetimerange.el-input,
+.el-date-editor.el-input {
+  width: 100%;
+}
+
+.el-select .el-input {
+  width: 140px;
+}
+
+.el-picker-panel {
+  max-width: 400px;
+}
+</style>
