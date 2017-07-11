@@ -3,101 +3,101 @@
     <div class="col-12 col-md-12">
       <div class="section-title">
         <h2>แจ้งหายล่าสุด</h2>
-        <el-tabs v-model="activeName" @tab-click="handleClick">
-          <el-tab-pane label="ทั้งหมด" name="first">
-            <div class="row">
-              <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items">
-                <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
-                <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
-                <h4>{{item.name}}
-                  <span class="float-right total-viewed">
-                    <i class="el-icon-search"></i> 102 ครั้ง</span>
-                </h4>
-                <p>
-                  {{item.description}}
-                </p>
-                <hr class="dim">
-                <div class="float-left date-time">
-                  {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
-                </div>
-                <div class="float-right">
-                  <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
-                </div>
-              </div>
-            </div>
-            <!--/row-->
-          </el-tab-pane>
-          <el-tab-pane label="คนหาย" name="second">
-            <div class="row">
-              <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items_humans">
-                <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
-                <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
-                <h4>{{item.name}}
-                  <span class="float-right total-viewed">
-                    <i class="el-icon-search"></i> 102 ครั้ง</span>
-                </h4>
-                <p>
-                  {{item.description}}
-                </p>
-                <hr class="dim">
-                <div class="float-left date-time">
-                  {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
-                </div>
-                <div class="float-right">
-                  <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
-                </div>
-              </div>
-            </div>
-            <!--/row-->
-          </el-tab-pane>
-          <el-tab-pane label="สัตว์หาย" name="third">
-            <div class="row">
-              <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items_animals">
-                <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
-                <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
-                <h4>{{item.name}}
-                  <span class="float-right total-viewed">
-                    <i class="el-icon-search"></i> 102 ครั้ง</span>
-                </h4>
-                <p>
-                  {{item.description}}
-                </p>
-                <hr class="dim">
-                <div class="float-left date-time">
-                  {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
-                </div>
-                <div class="float-right">
-                  <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
-                </div>
-              </div>
-            </div>
-            <!--/row-->
-          </el-tab-pane>
-          <el-tab-pane label="ของหาย" name="fourth">
-            <div class="row">
-              <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items_humans">
-                <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
-                <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
-                <h4>{{item.name}}
-                  <span class="float-right total-viewed">
-                    <i class="el-icon-search"></i> 102 ครั้ง</span>
-                </h4>
-                <p>
-                  {{item.description}}
-                </p>
-                <hr class="dim">
-                <div class="float-left date-time">
-                  {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
-                </div>
-                <div class="float-right">
-                  <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
-                </div>
-              </div>
-            </div>
-            <!--/row-->
-          </el-tab-pane>
-        </el-tabs>
       </div>
+      <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tab-pane label="ทั้งหมด" name="first">
+          <div class="row">
+            <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items">
+              <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
+              <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
+              <h4>{{item.name}}
+                <span class="float-right total-viewed">
+                  <i class="el-icon-search"></i> 102 ครั้ง</span>
+              </h4>
+              <p>
+                {{item.description}}
+              </p>
+              <hr class="dim">
+              <div class="float-left date-time">
+                {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
+              </div>
+              <div class="float-right">
+                <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
+              </div>
+            </div>
+          </div>
+          <!--/row-->
+        </el-tab-pane>
+        <el-tab-pane label="คนหาย" name="second">
+          <div class="row">
+            <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items_humans">
+              <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
+              <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
+              <h4>{{item.name}}
+                <span class="float-right total-viewed">
+                  <i class="el-icon-search"></i> 102 ครั้ง</span>
+              </h4>
+              <p>
+                {{item.description}}
+              </p>
+              <hr class="dim">
+              <div class="float-left date-time">
+                {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
+              </div>
+              <div class="float-right">
+                <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
+              </div>
+            </div>
+          </div>
+          <!--/row-->
+        </el-tab-pane>
+        <el-tab-pane label="สัตว์หาย" name="third">
+          <div class="row">
+            <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items_animals">
+              <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
+              <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
+              <h4>{{item.name}}
+                <span class="float-right total-viewed">
+                  <i class="el-icon-search"></i> 102 ครั้ง</span>
+              </h4>
+              <p>
+                {{item.description}}
+              </p>
+              <hr class="dim">
+              <div class="float-left date-time">
+                {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
+              </div>
+              <div class="float-right">
+                <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
+              </div>
+            </div>
+          </div>
+          <!--/row-->
+        </el-tab-pane>
+        <el-tab-pane label="ของหาย" name="fourth">
+          <div class="row">
+            <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items_humans">
+              <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
+              <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
+              <h4>{{item.name}}
+                <span class="float-right total-viewed">
+                  <i class="el-icon-search"></i> 102 ครั้ง</span>
+              </h4>
+              <p>
+                {{item.description}}
+              </p>
+              <hr class="dim">
+              <div class="float-left date-time">
+                {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
+              </div>
+              <div class="float-right">
+                <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
+              </div>
+            </div>
+          </div>
+          <!--/row-->
+        </el-tab-pane>
+      </el-tabs>
     </div>
     <el-button @click="test_button">Test Button</el-button>
   </div>

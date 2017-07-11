@@ -4,7 +4,7 @@
       <div class="text-center p-5" style="color: white;">
         <h1>คนหาย สัตว์เลี้ยงหาย ของหาย</h1>
         <h2>คุณสามารถลงประกาศ แจ้งหายไว้ได้ที่นี่ แล้วให้พวกเราช่วยตามหา</h2>
-        <el-button type="danger" icon="edit">แจ้งหาย</el-button>
+        <el-button type="danger" icon="edit" @click="goCreate">แจ้งหาย</el-button>
       </div>
       <p class="credits">
       </p>
@@ -13,6 +13,11 @@
 </template>
 <script>
 export default {
+  methods: {
+    goCreate () {
+      this.$router.push({ name: 'Create' })
+    }
+  }
 }
 </script>
 

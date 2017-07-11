@@ -12,8 +12,9 @@ Vue.use(BootstrapVue)
 
 // element ui framework
 import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
 import '../theme/index.css'
-Vue.use(ElementUI)
+Vue.use(ElementUI, { locale })
 
 // custom css file
 import './assets/font.css'
