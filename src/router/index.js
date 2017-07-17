@@ -5,6 +5,7 @@ import Home from '@/layouts/Home'
 import Post from '@/components/Post'
 import Posts from '@/components/Posts'
 import Create from '@/components/Create'
+import Support from '@/layouts/Support'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/post/:id',
       name: 'Post',
       component: Post
+    },
+    {
+      path: '/support',
+      name: 'Support',
+      component: Support
     }
   ]
 })

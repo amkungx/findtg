@@ -13,7 +13,7 @@
           <b-nav is-nav-bar>
             <b-nav-item to="/posts">ดูประกาศตามหา</b-nav-item>
             <b-nav-item to="/create">แจ้งหาย</b-nav-item>
-            <b-nav-item>ช่วยเหลือ</b-nav-item>
+            <b-nav-item to="/support">ช่วยเหลือ</b-nav-item>
           </b-nav>
   
           <b-nav is-nav-bar class="ml-auto">
