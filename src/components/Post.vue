@@ -29,7 +29,7 @@
               </social-sharing>
             </div>
   
-            <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
+            <img v-lazy="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
   
             <p>{{item.description}}</p>
           </div>
@@ -40,9 +40,12 @@
             <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
           </nav>
   
-          <comComments class="mt-3" :id="item.id"></comComments>
+          <comGallery class="mt-5"></comGallery>
+  
+          <comComments class="mt-5" :id="item.id"></comComments>
   
         </div>
+  
         <!-- /.blog-main -->
   
         <div class="col-sm-3 offset-sm-1 blog-sidebar">
@@ -116,7 +119,8 @@
   </div>
 </template>
 <script>
-import comComments from '@/components/Comments'
+import comGallery from '@/components/PostGallery'
+import comComments from '@/components/PostComments'
 export default {
   data () {
     return {
@@ -144,6 +148,7 @@ export default {
     })
   },
   components: {
+    comGallery,
     comComments
   }
 }

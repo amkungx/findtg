@@ -43,6 +43,18 @@ Vue.use(VueMoment)
 import SocialSharing from 'vue-social-sharing'
 Vue.use(SocialSharing)
 
+// images gallery
+// import VueImg from 'v-img'
+// Vue.use(VueImg)
+
+// lazyload
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+
+// touch
+import VueTouch from 'vue-touch'
+Vue.use(VueTouch, { name: 'v-touch' })
+
 // filters
 import * as filters from './filters'
 Object.keys(filters).forEach(key => {

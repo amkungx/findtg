@@ -3,7 +3,9 @@
     <main>
       <layoutHeader></layoutHeader>
       <el-collapse-transition>
-        <router-view></router-view>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </el-collapse-transition>
     </main>
     <layoutFooter></layoutFooter>
@@ -60,10 +62,19 @@ main {
   margin: 40px auto;
 }
 
-.section-title h2 {
-  font-weight: 200 !important;
-  font-family: 'Kanit', sans-serif;
+h1.section-title,
+h2.section-title,
+h3.section-title,
+h4.section-title {
+  font-family: 'Avenir', Helvetica, 'Kanit', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  font-weight: 200;
+  font-size: 1.3rem;
 }
+
+.section-content {}
 
 .el-button {
   border-radius: 2px;

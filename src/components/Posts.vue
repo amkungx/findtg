@@ -6,11 +6,11 @@
       </div>
       <div class="row">
         <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items">
-          <img :src="'http://lorempixel.com/640/320/people/'+(Math.floor(Math.random() * 10) + 1)+'/'" class="mb-3" width="100%">
+          <img v-lazy="'http://lorempixel.com/640/320/people/'+index+'/'" class="mb-3" width="100%">
           <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
           <h4>{{item.name}}
             <span class="float-right total-viewed">
-              <i class="el-icon-search"></i> 102 ครั้ง</span>
+              <i class="el-icon-search"></i> {{(Math.floor(Math.random() * 100) + 1)}} ครั้ง</span>
           </h4>
           <p>
             {{ item.description }}
@@ -34,10 +34,7 @@ export default {
   data () {
     return {
       activeName: 'first',
-      items: [],
-      items_humans: [],
-      items_animals: [],
-      items_things: []
+      items: []
     }
   },
   created () {
@@ -45,23 +42,10 @@ export default {
     this.axios.get('http://localhost:8000/api/products?sort=name|desc&page=1&per_page=9').then((response) => {
       this.items = response.data.data
     })
-    this.axios.get('http://localhost:8000/api/products?sort=name|asc&page=1&per_page=9').then((response) => {
-      this.items_humans = response.data.data
-    })
-    this.axios.get('http://localhost:8000/api/products?sort=id|asc&page=1&per_page=9').then((response) => {
-      this.items_animals = response.data.data
-    })
-    this.axios.get('http://localhost:8000/api/products?sort=updated_at|asc&page=1&per_page=9').then((response) => {
-      this.items_things = response.data.data
-    })
   },
   methods: {
     test_button () {
       console.log(this.items)
-      console.log(this.items_humans)
-      console.log(this.items_animals)
-      console.log(this.items_things)
-      this.items = this.items_humans
     },
     handleClick (tab, event) {
       console.log(tab, event)

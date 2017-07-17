@@ -1,6 +1,7 @@
 <template>
   <div>
-    <b-card>
+    <h4 class="section-title">Comment</h4>
+    <b-card class="section-content border-0">
       <b-media>
         <img slot="aside" src="https://placeholdit.imgix.net/~text?txt=64x64&w=64&h=64">
         <h5 class="mt-0">Media Title {{id}}</h5>
@@ -16,7 +17,7 @@
           Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
         </b-media>
       </b-media>
-    </b-card>  
+    </b-card>
   </div>
 </template>
 <script>
@@ -25,6 +26,8 @@ export default {
 }
 </script>
 <style>
-
+.section-content .card-block {
+  background-color: #f9f9f9;
+}
 </style>
 
