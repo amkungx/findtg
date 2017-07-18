@@ -39,11 +39,14 @@
           <div class="el-upload__tip" slot="tip">jpg/png files with a size less than 500kb</div>
         </el-upload>
       </div>
-  
+      <div class="mt-3">
+        <LocationService></LocationService>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import LocationService from '@/components/LocationService'
 export default {
   data () {
     return {
@@ -65,6 +68,9 @@ export default {
     handlePreview (file) {
       console.log(file)
     }
+  },
+  components: {
+    LocationService
   }
 }
 </script>

@@ -7,7 +7,7 @@
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="ทั้งหมด" name="first">
           <div class="row">
-            <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items">
+            <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items" @click="readPost(item.id)">
               <img v-lazy="'http://lorempixel.com/640/320/people/'+index+'/'" class="mb-3" width="100%">
               <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
               <h4>{{item.name}}
@@ -77,7 +77,7 @@
         <el-tab-pane label="ของหาย" name="fourth">
           <div class="row">
             <div class="box-item col-xs-12 col-sm-6 col-md-6 col-lg-4 box-item pb-4 pt-3" v-for="(item, index) in items_humans">
-              <img v-lazy="'http://lorempixel.com/640/320/technics/'+index+'/'" class="mb-3" width="100%">
+              <img v-lazy="'http://lorempixel.com/640/320/technics/'+index+'/'" class="mb-3" width="100%" @click="readPost(item.id)">
               <!--<img :src="'/static/img/'+item.image" class="mb-3" width="100%">-->
               <h4>{{item.name}}
                 <span class="float-right total-viewed">
