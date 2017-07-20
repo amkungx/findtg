@@ -1,5 +1,7 @@
 <template>
   <div>
+    <gmap-autocomplete :value="description" @place_changed="setPlace" style="width: 100%;">
+    </gmap-autocomplete>
     <gmap-map ref="map" :center="center" :zoom="zoom" @click="setMarker" :options="options" style="width: 100%; height: 500px; will-change: transform; transform: translateZ(0);">
       <gmap-marker :key="index" v-for="(m, index) in markers" :animation=4 :title="'Your location'" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position">
       </gmap-marker>
@@ -17,13 +19,14 @@ import Vue from 'vue'
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyCh86t9AKLq8kPqiWjnCJylcOkT_ZpIIXs',
-    v: '3.29'
-    // libraries: 'places', //// If you need to use place input
+    v: '3.29',
+    libraries: 'places'
   }
 })
 export default {
   data () {
     return {
+      description: 'รามอินทรา ซอย 23',
       options: {
         scaleControl: true,
         scrollwheel: false,
@@ -37,7 +40,7 @@ export default {
       },
       zoom: 13,
       showRadius: false,
-      center: { lat: 13.7248944, lng: 100.4926842 },
+      center: { lat: 13.7248, lng: 100.4926 },
       markers: [],
       current: null,
       position: null
@@ -52,23 +55,51 @@ export default {
       // this.center.lng = position[3].subtitle
       // this.$emit('setMapCenter', this.center)
       console.log('position changed')
-      console.log(position)
+      // console.log(position)
       // this.getLocationsNearToUser()
     },
     center (center) {
       console.log('center changed')
-      console.log(center)
+      // console.log(center)
+    },
+    description (description) {
+      console.log(description)
     }
   },
   methods: {
+    setDescription (description) {
+      this.description = description
+    },
+    setPlace (place) {
+      if (place.geometry) {
+        this.setPosition({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() })
+        this.current = this.getPosition()
+        this.center = this.getPosition()
+        this.markers = [{
+          position: this.getPosition()
+        }]
+      } else {
+        console.log(place)
+      }
+    },
+    tryFreeGeoIP () {
+      this.axios.get('http://freegeoip.net/json/').then((response) => {
+        // this.items = response.data.data
+        // console.log(response.data.latitude)
+        // console.log(response.data.longitude)
+        setTimeout(this.setLocation({ lat: response.data.latitude, lng: response.data.longitude }), 100)
+        // this.setLocation({ lat: response.data.latitude, lng: response.data.longitude })
+      })
+    },
     setPosition (position) {
       this.position = position
+      console.log(this.getPosition())
     },
     getPosition () {
       return this.position
     },
     setLocation (position) {
-      this.setPosition({ lat: position.coords.latitude, lng: position.coords.longitude })
+      this.setPosition(position)
       this.current = this.getPosition()
       this.center = this.getPosition()
       this.markers = [{
@@ -77,6 +108,7 @@ export default {
       // this.$refs.map.setMyLocationEnabled(true)
     },
     setMarker (place) {
+      console.log(place)
       this.setPosition({ lat: place.latLng.lat(), lng: place.latLng.lng() })
       this.markers = [{
         position: this.getPosition()
@@ -91,28 +123,33 @@ export default {
     }
   },
   created () {
-    // if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-    //   // mMap.setMyLocationEnabled(true);
-    //   console.log('s')
-    // } else {
-    //   // Show rationale and request permission.
-    //   console.log('x')
-    // }
+    // this.axios.get('https://www.google.co.th/maps/search/รามอินทรา').then((response) => {
+    //   console.log(response)
+    // })
+
     if ('geolocation' in navigator) {
+      // if (this.showRadius) {
       /* geolocation is available */
       console.log('geolocation is available')
-      navigator.geolocation.getCurrentPosition(function (position) {
-        // console.log(position.coords.latitude)
-        // console.log(position.coords.longitude)
-      })
-      var watchID = navigator.geolocation.watchPosition((position) => {
-        // console.log('position changed!')
-        navigator.geolocation.clearWatch(watchID)
-        this.setLocation(position)
-      })
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // console.log(position)
+          this.setLocation({ lat: position.coords.latitude, lng: position.coords.longitude })
+        },
+        (failure) => {
+          // console.log(failure)
+          this.tryFreeGeoIP()
+        }
+      )
+      // var watchID = navigator.geolocation.watchPosition((position) => {
+      //   // console.log('position changed!')
+      //   navigator.geolocation.clearWatch(watchID)
+      //   this.setLocation(position)
+      // })
     } else {
       /* geolocation IS NOT available */
       console.log('geolocation IS NOT available')
+      this.tryFreeGeoIP()
     }
   }
 }

@@ -5,7 +5,7 @@
       <div class="row">
   
         <div class="col-sm-8 blog-main">
-  
+          <div id="shareBtn" class="btn btn-success clearfix">Share</div>
           <div class="blog-post">
             <div class="float-left">
               <h2 class="blog-post-title">{{item.name}}</h2>
@@ -132,7 +132,7 @@ export default {
     return {
       title: this.item.name,
       meta: [
-        { property: 'fb:app_id', content: '220299868046727' },
+        { property: 'fb:app_id', content: '145210586035919' },
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: this.item.name },
         { property: 'og:url', content: this.url },
@@ -146,6 +146,33 @@ export default {
       this.item = response.data
       // console.log(response.data)
     })
+    // document.getElementById('shareBtn').onclick = function () {
+    //   FB.ui({
+    //     method: 'share',
+    //     display: 'popup',
+    //     href: 'https://developers.facebook.com/docs/'
+    //   }, function (response) { })
+    // }
+  },
+  mounted () {
+    // window.fbAsyncInit = function () {
+    //   FB.init({
+    //     appId: '145210586035919',
+    //     autoLogAppEvents: true,
+    //     xfbml: true,
+    //     version: 'v2.10'
+    //   });
+    //   FB.AppEvents.logPageView()
+    // };
+
+    // (function (d, s, id) {
+    //   var fjs = d.getElementsByTagName(s)[0]
+    //   if (d.getElementById(id)) { return; }
+    //   var js = d.createElement(s); js.id = id
+    //   js.src = "//connect.facebook.net/en_US/sdk.js"
+    //   fjs.parentNode.insertBefore(js, fjs)
+    // }(document, 'script', 'facebook-jssdk'))
+
   },
   components: {
     comGallery,

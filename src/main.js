@@ -8,17 +8,17 @@ import router from './router'
 import Meta from 'vue-meta'
 Vue.use(Meta)
 
-// element ui framework
-import ElementUI from 'element-ui'
-import locale from 'element-ui/lib/locale/lang/en'
-import '../theme/index.css'
-Vue.use(ElementUI, { locale })
-
 // bootstrap 4 ui framework
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
+
+// element ui framework
+import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
+import '../theme/index.css'
+Vue.use(ElementUI, { locale })
 
 // custom css file
 import './assets/font.css'

@@ -19,7 +19,7 @@
               </p>
               <hr class="dim">
               <div class="float-left date-time">
-                {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
+                {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
               </div>
               <div class="float-right">
                 <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
@@ -42,7 +42,7 @@
               </p>
               <hr class="dim">
               <div class="float-left date-time">
-                {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
+                {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
               </div>
               <div class="float-right">
                 <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
@@ -65,7 +65,7 @@
               </p>
               <hr class="dim">
               <div class="float-left date-time">
-                {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
+                {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
               </div>
               <div class="float-right">
                 <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
@@ -88,7 +88,7 @@
               </p>
               <hr class="dim">
               <div class="float-left date-time">
-                {{item.image}} {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
+                {{item.updated_at | moment("dddd, MMMM Do YYYY") }}
               </div>
               <div class="float-right">
                 <el-button size="small" @click="readPost(item.id)">อ่านต่อ</el-button>
