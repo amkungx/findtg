@@ -132,7 +132,7 @@ export default {
     return {
       title: this.item.name,
       meta: [
-        { property: 'fb:app_id', content: '145210586035919' },
+        { property: 'fb:app_id', content: '314810962296870' },
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: this.item.name },
         { property: 'og:url', content: this.url },
